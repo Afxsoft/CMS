@@ -54,7 +54,7 @@
         </div>
       </div>
     </div>
-
+   <?php echo $alert?>
     <div class="container">
       <?php echo $viewContent; ?>
       <hr>

@@ -15,6 +15,7 @@ class Controller {
         "viewSiteName" => "",
         "viewTile" => "",
         "viewDescription" => "",
+        "alert" => "",
     );
 
     public function __construct() {
