@@ -12,6 +12,6 @@ class User extends MainController {
 
     public function indexAction() {
         $this->add_data_view(array("viewTitle" => "User"));
-    }
+    } 
 
 }

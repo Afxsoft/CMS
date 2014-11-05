@@ -32,7 +32,6 @@ class Controller {
         extract($i);
 
         $pathViews = $this->source_root . "Views/Controllers/" . str_replace($this->source_link, "", $controller) . "/" . str_replace("Action", "", $action) . ".php";
-        var_dump($pathViews);
         if (file_exists($pathViews)) {
 
             header("Content-type: " . $this->responseHeader . ";charset=UTF-8");
@@ -74,12 +73,12 @@ class Controller {
      */
     protected function set_responseHeader($value) {
         $possibility = array(
-            "txt"  => "text/plain",
+            "txt" => "text/plain",
             "html" => "text/html",
-            "css"  => "text/css",
-            "js"   => "application/javascript",
+            "css" => "text/css",
+            "js" => "application/javascript",
             "json" => "application/json",
-            "xml"  => "application/xml",
+            "xml" => "application/xml",
         );
         if (array_key_exists(strtolower($value), $possibility)) {
             $this->responseHeader = $possibility[$value];

@@ -41,6 +41,7 @@
         </div>
         <div class="nav navbar-nav navbar-right">
             <?php if(empty($_SESSION['User'])):?>
+            <a href="/login" class="btn btn-success">S'incrire</a>
             <a href="/login" class="btn btn-success">Se connecter</a>
             <?php else:?>
             <a href="/logout" class="btn btn-danger">Se déconnecter</a>

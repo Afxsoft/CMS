@@ -1,15 +1,13 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="error-template">
-                <h1>
-                    Oops!</h1>
-                <h2>
-                    404 Not Found</h2>
-                <div class="error-details">
-                    Sorry, an error has occured, Requested page not found!
-                </div>
-            </div>
-        </div>
+<div class="outer-page">
+
+  <!-- Error page -->
+  <div class="error-page br-lblue text-center">
+    <div class="error-page-inner">
+      <h1>Oops!!! Erreur <strong>404</strong></h1>
+      <br>
+      <p>Page intrtouvable.</p>
+
     </div>
+  </div>
+
 </div>

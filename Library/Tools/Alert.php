@@ -29,7 +29,7 @@ class Alert {
                 $class = "alert-info";
                 break;
         }
-        $output = "<div class='alert $class' role='alert'><strong>$msg</strong></div>";
+        $output = "<div class='msg-alert alert $class' role='alert'><strong>$msg</strong></div>";
         return $output;
     }
 

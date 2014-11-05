@@ -1,10 +1,18 @@
 #Rewrite rules
 RewriteEngine on
-RewriteBase /Public
-RewriteRule ^admin/([0-9a-zA-Z\_\-\/]*)$ index.php?end=admin&page=$1 [L]
+RewriteBase /Public/
+RewriteRule ^dashboard/css/(.*)$ /Public/admin/css/$1 [L]
+RewriteRule ^dashboard/js/(.*)$	/Public/admin/js/$1 [L]
+RewriteRule ^dashboard/img/(.*)$	/Public/admin/img/$1 [L]
+RewriteRule ^dashboard/fonts/(.*)$	/Public/admin/fonts/$1 [L]
+RewriteRule ^admin/([0-9a-zA-Z\_\-\/]*)$ index.php?end=admin&page=$1 [QSA]
 RewriteRule ^([0-9a-zA-Z\_\-\/]*)$ index.php?end=front&page=$1 [L]
 RewriteRule ^css/(.*)$ app/css/$1 [L]
 RewriteRule ^js/(.*)$	app/js/$1 [L]
-RewriteRule ^admin/css/(.*)$ admin/css/$1 [L]
-RewriteRule ^admin/js/(.*)$	admin/js/$1 [L]
+#RewriteRule ^css/(.*)$ /Site/Library/Libs/$1 [L]
+#RewriteRule ^home/(.*)$ /Site/Public/css/$1 [L]
+#RewriteRule ^js/(.*)$ /Site/Library/Libs/$1 [L]
+#RewriteRule ^templates/(.*)$ /Site/Public/templates/$1 [L]
+#RewriteRule ^img/(.*)$ /Site/Public/images/$1 [L]
+#RewriteRule ^admin-center/(.*)$ /Site/Administration/$1 [L]
 #Compression Deflate
