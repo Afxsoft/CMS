@@ -1,6 +1,7 @@
 <?php
 
 namespace Library\Core;
+
 use PDO;
 
 abstract class Model {
@@ -56,13 +57,13 @@ abstract class Model {
 
         foreach ($data as $k => $v) {
             $fieldsList .= "`$k`, ";
-            $valuesList .= "'$v', ";
+            $valuesList .= $this->db->quote($v) . ", ";
         }
 
         $fieldsList = substr($fieldsList, 0, -2);
         $valuesList = substr($valuesList, 0, -2);
 
-        $query = "INSERT INTO `" . $this->table . "` ($fieldsList) VALUES ($valuesList)";//http://php.net/manual/fr/pdo.quote.php
+        $query = "INSERT INTO `" . $this->table . "` ($fieldsList) VALUES ($valuesList)";
         $sql = $this->db->prepare($query);
         return $sql->execute();
     }
@@ -77,11 +78,11 @@ abstract class Model {
         if (!empty($where)) {
             $fieldsListAndValue = "";
             foreach ($data as $k => $v) {
-                $fieldsListAndValue .= "`$k`='$v', ";
+                $fieldsListAndValue .= "`$k`=" . $this->db->quote($v) . ", ";
             }
             $fieldsListAndValue = substr($fieldsListAndValue, 0, -2);
 
-            $query = "UPDATE " . $this->table . " SET $fieldsListAndValue WHERE $where";//http://php.net/manual/fr/pdo.quote.php
+            $query = "UPDATE " . $this->table . " SET $fieldsListAndValue WHERE $where";
             $sql = $this->db->prepare($query);
             return $sql->execute();
         }

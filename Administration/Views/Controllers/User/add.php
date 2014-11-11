@@ -30,7 +30,7 @@
       <div class="page-tabs">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
-          <li ><a href="/admin/user" class="br-lblue" ><i class="fa fa-user lblue"></i> Utilisateurs</a></li>
+          <li ><a href="/admin/user" class="br-red" ><i class="fa fa-user red"></i> Utilisateurs</a></li>
           <li class="active"><a href="#addnew" class="br-red" data-toggle="tab" aria-expanded="true"><i class="fa fa-plus red"></i> Ajouter un nouveau</a></li>
         </ul>
         <!-- Tab panes -->
@@ -61,9 +61,11 @@
                 <div class="col-md-10">
                   <input type="password" class="form-control" id="password" placeholder="Password"  name='password' required="">
                 </div>
+              </div>
+              <div class="form-group">
                 <label for="password" class="col-md-2 control-label">Confirmation Password</label>
                 <div class="col-md-10">
-                 <input type="password" class="form-control" placeholder="Confirme password" name="passwordConfirm">
+                  <input type="password" class="form-control" placeholder="Confirme password" name="passwordConfirm">
                 </div>
               </div>
 

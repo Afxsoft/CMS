@@ -22,7 +22,7 @@
 
         <div class="sidey">
           <div class="logo">
-            <h1><a href="/admin/"><i class="fa fa-desktop br-red"></i> Sitruc <span>Le slogan</span></a></h1>
+            <h1><a href="/admin/"></i> Sitruc</a></h1>
           </div>
           <div class="sidebar-dropdown"><a href="#" class="br-red"><i class="fa fa-bars"></i></a></div>
           <div class="side-nav" style="">

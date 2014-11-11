@@ -42,11 +42,13 @@
                       echo '<td>' . $users->id . '</td>';
                       echo '<td>' . $users->nickname . '</td>';
                       echo '<td>' . $users->mail . '</td>';
+                      $phpdate = strtotime($users->update);
+                      $mysqldate = date('Y-m-d H:i:s', $phpdate);
                       $date = date_create($users->update);
                       echo '<td>' . date_format($date, 'Y-m-d H:i:s') . '</td>';
                       echo '<td>' . $users->id_role . '</td>';
 
-                      echo '<td><a href="/admin/user/modify/' . $users->id . '" class="btn btn-info btn-xs"><i class="fa fa-envelope"></i></a>';
+                      echo '<td class="action"><a href="/admin/user/modify/' . $users->id . '" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>';
                       echo '<a href="/admin/user/delete/' . $users->id . '" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></td>';
                       echo '</tr>';
                   }
@@ -66,12 +68,12 @@
             </ul>
             <div class="clearfix"></div>
           </div>
-      </div>
-    </div> <!-- Users page End -->
+        </div>
+      </div> <!-- Users page End -->
+
+    </div>
 
   </div>
-
-</div>
 </div>
 
 </div>

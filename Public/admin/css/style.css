@@ -382,7 +382,7 @@ form label{
 /* Sidebar logo */
 
 .sidebar .logo{
-	padding:15px;
+	padding:22px;
 	border-bottom:1px solid #444;
 	text-shadow:0px 0px 2px #222;
 }
@@ -2458,4 +2458,10 @@ form label.error {
 }
 .msg-alert{
     border-radius: 0 !important;
+}
+td.action{
+    text-align: center;
+}
+td.action a:first-child{
+    margin-right: 5px;
 }
