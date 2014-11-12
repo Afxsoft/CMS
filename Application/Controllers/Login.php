@@ -15,7 +15,7 @@ class Login extends MainController {
         global $connexion;
 
         $cx = $connexion->get_cx();
-
+        //[todo] redirection quand connecter
         if (!empty($_POST['login']) && !empty($_POST['password'])) {
             $login = $_POST['login'];
             $password = md5($_POST['password']);

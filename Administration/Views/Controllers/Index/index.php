@@ -4,7 +4,7 @@
 
     <!-- Heading -->
     <div class="single-head">
-      <!-- Heading -->
+      <!-- Heading [todo] intégration responsive-->
       <h3 class="admin-title"><i class="fa fa-bookmark-o lblue"></i> Menu accès direct</h3>
       <div class="clearfix"></div>
     </div>

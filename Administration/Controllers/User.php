@@ -30,7 +30,7 @@ class User extends MainController {
 
             if ($modelUser->findById($_GET['params'])) {
                 $modelUser->delete($_GET['params']);
-                $alert = Tools\Alert::render("L'utilisateur a bien été supprimer ! ", "success");
+                $alert = Tools\Alert::render("L'utilisateur a bien été supprimé! ", "success");
                 $action = TRUE;
             } else {
                 $alert = Tools\Alert::render("L'utilisateur n'existe pas  ! ", "danger");
@@ -80,6 +80,7 @@ class User extends MainController {
             } elseif ($passwordConf != $password) {
                 $alert = Tools\Alert::render("Les deux mot de passes ne concorde pas", "danger");
             } else {
+                //[TODO] enlver le mot de passe sur le form
                 if ($password != $form->password) {
                     $password = md5($password);
                 }
@@ -110,7 +111,6 @@ class User extends MainController {
         $modelRole = new \Administration\Models\Role($cx);
         $role = $modelRole->fetchAll();
         $modelUser = new \Application\Models\User($cx);
-//        $user = $modelUser->findById();
 
         if (!empty($_POST['nickname']) && !empty($_POST['mail']) && !empty($_POST['password']) && !empty($_POST['passwordConfirm'])) {
 
@@ -127,6 +127,7 @@ class User extends MainController {
                 $alert = Tools\Alert::render("Ce nom utilisateur existe déjà !", "danger");
             } elseif (!empty($mailResult)) {
                 $alert = Tools\Alert::render("Cette adresse mail existe déjà !", "danger");
+                //[TODO]verif mail http://php.net/manual/fr/function.filter-var.php 
             } elseif (empty($password)) {
                 $alert = Tools\Alert::render("le mote passe est obligatoire !", "danger");
             } elseif (empty($passwordConf)) {
