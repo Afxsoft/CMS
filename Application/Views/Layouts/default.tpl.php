@@ -10,15 +10,17 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
         <style>
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
             }
         </style>
-        <link rel="stylesheet" href="/Public/app/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/Public/app/css/main.css">
+        <link rel="stylesheet" href="/Public/app/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Public/app/css/layout.css">
+        <link rel="stylesheet" href="/Public/app/css/skeleton.css">
+        <link rel="stylesheet" href="/Public/app/css/styles.css">
+
 
         <!--[if lt IE 9]>
             <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
@@ -28,35 +30,37 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">My project</a>
-        </div>
-        <div class="nav navbar-nav navbar-right">
-            <?php if(empty($_SESSION['User'])):?>
-            <a href="/login" class="btn btn-success">S'incrire</a>
-            <a href="/login" class="btn btn-success">Se connecter</a>
-            <?php else:?>
-            <a href="/logout" class="btn btn-danger">Se déconnecter</a>
-            <?php endif;?>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
+	<div class="container">
+		<div id="entete" class="sixteen columns">
+		
+			<?php if(empty($_SESSION['User'])):?>
+			<a href="/login" class="three columns btn-connexion">Inscription</a>
+			<a href="/login" class="three columns btn-connexion offset-by-one">Connexion</a>
+			<?php else:?>
+			<a href="/logout" class="three columns btn-connexion">Se déconnecter</a>
+			<?php endif;?>
+			<div class="four columns btn-recherche"><input type="text"/><i class="fa fa-search"></i></div>
+			
+		</div>
+		<div id="slide" class="sixteen columns ">
+			
+		</div>
+		<div id="menu">
+			<div class="onglet four columns omega">Itinéraire</div>
+			<div class="onglet four columns alpha omega">Evenement</div>
+			<div class="onglet four columns alpha omega">Calendrier</div>
+			<div class="onglet four columns alpha">Info & Tarifs</div>
+		</div>
+		<div id="conteneur">
+	      <?php echo $viewContent; ?>
+		</div>
 
-    <div class="container">
-      <?php echo $viewContent; ?>
-      <hr>
-      <footer>
-        <p>&copy; Footer 2014</p>
-      </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	      <footer>
+		<p>&copy; Footer 2014</p>
+	      </footer>
+	</div> <!-- /container -->        
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>

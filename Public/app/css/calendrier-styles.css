@@ -1,0 +1,145 @@
+#calendrier{width:490px; float: left;}
+#calendrier .jour{width: 70px; text-align: center; float: left; border-top: 1px solid #c8c8c8;}
+
+/* ---- ---- ---- ---- ---- ---- NAVIGATION ---- ---- ---- ---- ---- ---- */
+/* ---------------------------------------------------------------------------- */
+#navigation{width: 100%; float: left; margin-bottom: 20px;}
+#navigation .onglet{float: left; width: 163px; text-align: center;}
+
+#navigation #mois_actuel{font-weight: bold;}
+#navigation #moisPrecedent, #moisSuivant{cursor: pointer;}
+
+/* ---- ---- ---- ---- ---- ---- ENTETE ---- ---- ---- ---- ---- ---- */
+/* --------------------------------------------------------------------- */
+#entete{width: 100%; float: left;}
+#entete .jour{border: 0px; height: 25px; line-height: 25px;}
+
+/* ---- ---- ---- ---- ---- ---- CONTENT ---- ---- ---- ---- ---- ---- */
+/* ------------------------------------------------------------------------ */
+#content{width: 100%; float: left;}
+#content .jour{height: 70px; line-height:60px; font-size: 16px; position: relative; cursor: pointer;}
+#content .jour.actif{color: white;}
+#content .jourDisable{cursor: default;}
+#content .jourCourant{color: red;}
+#content .picto{background: none repeat scroll 0 0 black; border-radius: 5px; height: 6px; left: 31px; opacity: 0.28; position: absolute; top: 56px; width: 6px;}
+#content .bck-jour{background: none repeat scroll 0 0 black; border-radius: 50px; height: 40px; left: 15px; position: absolute; top: 10px; width: 40px; z-index: -1;}
+
+/* ---- ---- ---- ---- ---- ---- LISTES ---- ---- ---- ---- ---- ---- */
+/* -------------------------------------------------------------------- */
+#list{width: 100%; float: left; margin-top: 20px;}
+#list .detail_block{width: 100%; float: left; margin-bottom: 4px;}
+#list .detail_block div{float: left;}
+#list .dateBlock{width: 110px; float: left;}
+#list h3{float: left; margin: 0; padding: 0;}
+#list .depart{width: 120px; text-align: center;}
+#list .content{width: 250px;}
+#list .arrivee {width: 120px; text-align: center;}
+#list .annee{}
+#list .heure{}
+#list .type1{border-left: 4px solid red;}
+#list .type2{border-left: 4px solid green;}  
+#list .type3{border-left: 4px solid blue;}  
+
+/* ---- ---- ---- ---- ---- ---- POP UP ---- ---- ---- ---- ---- ---- */
+/* --------------------------------------------------------------------- */
+
+#fade {display: none; background: #000; position: fixed; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.50; z-index: 9999;}
+.popup_block{display: none; background: #fff; padding: 20px; float: left; font-size: 1.2em; position: fixed; top: 20%; left: 20%; z-index: 99999; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; width: 260px;}
+.close { float: right; margin: -15px -5px 0 0; cursor: pointer;}
+*html #fade {position: absolute;}
+*html .popup_block {position: absolute;}
+
+/* ---- ---- ---- ---- ---- ---- ADMIN ---- ---- ---- ---- ---- ---- */
+/* --------------------------------------------------------------------- */
+#admin_content{float: left; margin-left: 20px; width: 50px;}
+#admin_content div{font-size: 30px; margin-top: 7px; cursor: pointer; color: #989898;}
+
+
+
+
+
+
+
+
+.separation{background: none repeat scroll 0 0 #dfdfdf; border-bottom: 1px solid #acacac; border-top: 1px solid #acacac;}
+
+
+
+#eventListContent { height: 240px; overflow: auto;}
+
+
+
+/* ---- ---- ---- ---- ---- ---- AUTRE ---- ---- ---- ---- ---- ---- */
+/* -------------------------------------------------------------------- */
+
+/* ---- Formulaire ---- */
+
+
+
+select, textarea, input{
+    border-radius: 4px;
+    color: #555555;
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 4px 6px;
+    vertical-align: middle;	
+}
+
+label, select, button, input[type="button"], input[type="reset"], input[type="submit"], input[type="radio"], input[type="checkbox"] {
+    cursor: pointer;
+}
+label {display: inline-block; font-size: 15px; margin-bottom: 5px; max-width: 100%;}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+textarea.form-control {height: auto;}
+select, input[type="file"] {
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    font-size: 14px;
+    color: #555555;
+}
+
+.form-group {margin-bottom: 15px;}
+.form-control {background-color: #ffffff; border: 1px solid #cccccc; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s; width: 100%;}
+.form-control:focus {border-color: #66afe9; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6); outline: 0 none;}
+
+.btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #b3b3b3;
+    border-image: none;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    padding: 4px 12px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+     height: 31px;
+}
+
+.btn.large{width : 100%}
+
+
+.clear{clear: both;}
