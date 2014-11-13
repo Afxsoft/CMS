@@ -13,22 +13,20 @@ class Login extends MainController {
 
     public function indexAction() {
         global $connexion;
-
         $cx = $connexion->get_cx();
-        //[todo] redirection quand connecter
+        if(!empty($_SESSION['User'])){
+          header("location:/admin");
+        }
         if (!empty($_POST['login']) && !empty($_POST['password'])) {
-            $login = $_POST['login'];
-            $password = md5($_POST['password']);
-
             $modelUser = new \Application\Models\User($cx);
-
-            $result = $modelUser->fetchAll("nickname='$login' and password='$password' ");
+            $result = $modelUser->getUserLogin($_POST['login'],md5($_POST['password']));
             if (!empty($result)) {
                 $_SESSION['User']['id'] = $result[0]->id;
                 $_SESSION['User']['name'] = $result[0]->nickname;
+                $_SESSION['User']['role'] = $result[0]->role;
                 header("location:/admin/");
             } else {
-                $alert = Tools\Alert::render("Votre mot de passe ou login est incorrecte!", "warning");
+                $alert = Tools\Alert::render("Votre mot de passe ou login est incorrecte !", "danger");
             }
         }
 

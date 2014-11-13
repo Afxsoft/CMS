@@ -30,7 +30,9 @@
           <!-- Add new user -->
           <div class="tab-pane fade active in" id="addnew">
             <h4>Modification</h4>
-
+<?php if($action) :?>
+            <p>L'utilisateur à bien été modifié</p>
+<?php else :?>
             <form class="form-horizontal" role="form" method="POST">
 
               <div class="form-group">
@@ -50,14 +52,14 @@
               <div class="form-group">
                 <label for="password" class="col-md-2 control-label">Password</label>
                 <div class="col-md-10">
-                  <input type="password" class="form-control" id="password" placeholder="Password"  name='password' required="" value="<?php echo  $formValue->password ?>">
-                  <p class="help-block">Ne remplissez ce champ que si vous souhaitez modifié le mot de passe.</p>
+                  <input type="password" class="form-control" id="password" placeholder="Password"  name='password' value="">
+                  <p class="help-block">Ne complétez ce champ que si vous souhaitez modifié le mot de passe.</p>
                 </div>
               </div>
               <div class="form-group">
                 <label for="password" class="col-md-2 control-label">Confirmation Password</label>
                 <div class="col-md-10">
-                  <input type="password" class="form-control" placeholder="Confirme password" name="passwordConfirm" value="<?php echo  $formValue->password ?>">
+                  <input type="password" class="form-control" placeholder="Confirme password" name="passwordConfirm" value="">
                 </div>
               </div>
 
@@ -78,6 +80,7 @@
                   <button type="submit" class="btn btn-info">Modifier</button>
                 </div>
             </form>
+            <?php endif;?>
           </div>
         </div> <!-- Tab panes End -->
       </div> <!-- Users page End -->

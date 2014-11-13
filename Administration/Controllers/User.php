@@ -10,7 +10,10 @@ class User extends MainController {
     public function __construct() {
         parent::__construct();
     }
-
+    /**
+     * [TODO]
+     * @global \Administration\Controllers\type $connexion
+     */
     public function indexAction() {
         global $connexion;
         $cx = $connexion->get_cx();
@@ -18,7 +21,10 @@ class User extends MainController {
         $result = $modelUser->fetchAll();
         $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL", "user" => $result));
     }
-
+    /**
+     * [TODO]
+     * @global \Administration\Controllers\type $connexion
+     */
     public function deleteAction() {
         if ($_GET['params'] === NULL || $_GET['params'] == '' || !is_numeric($_GET['params'])) {
             header('Location: /admin/404');
@@ -45,7 +51,10 @@ class User extends MainController {
                     "alert" => (!empty($alert)) ? $alert : '')
         );
     }
-
+    /**
+     * [TODO]
+     * @global type $connexion
+     */
     public function modifyAction() {
         //Vérification du GET
         if ($_GET['params'] === NULL || $_GET['params'] == '' || !is_numeric($_GET['params'])) {
@@ -59,38 +68,29 @@ class User extends MainController {
         $modelRole = new \Administration\Models\Role($cx);
         $role = $modelRole->fetchAll();
 
-        if (!empty($_POST['nickname']) && !empty($_POST['mail']) && !empty($_POST['password']) && !empty($_POST['passwordConfirm'])) {
-            $nickname = $_POST['nickname'];
-            $mail = $_POST['mail'];
-            $password = $_POST['password'];
-            $passwordConf = $_POST['passwordConfirm'];
-            $role = $_POST['role'];
-            $nicknameResult = $modelUser->fetchAll("nickname= '$nickname' ");
-            $mailResult = $modelUser->fetchAll("mail= '$mail' ");
+        if (!empty($_POST['nickname']) && !empty($_POST['mail'])) {
+          
+            $_POST['password'] = (!empty($_POST['password']))? md5($_POST['password']):NULL;
+            $_POST['passwordConfirm'] = (!empty($_POST['passwordConfirm']))? md5($_POST['passwordConfirm']):NULL;
+            $nicknameResult = $modelUser->getUserByName($_POST['nickname']);
+            $mailResult = $modelUser->getUserByMail($_POST['mail']);
 
 
-            if (!empty($nicknameResult) && $nickname != $form->nickname) {
+            if (!empty($nicknameResult) && $_POST['nickname'] != $form->nickname) {
                 $alert = Tools\Alert::render("Ce nom utilisateur existe déjà !", "danger");
-            } elseif (!empty($mailResult) && $mail != $form->mail) {
-                $alert = Tools\Alert::render("Cette adresse mail existe déjà !", "danger");
-            } elseif (empty($password)) {
-                $alert = Tools\Alert::render("le mote passe est obligatoire !", "danger");
-            } elseif (empty($passwordConf)) {
-                $alert = Tools\Alert::render("La confirmation du mot de passe est obligatoire !", "danger");
-            } elseif ($passwordConf != $password) {
+            } elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+                $alert = Tools\Alert::render("le format de l'adresse mail n'est pas bon !", "danger");            
+            } elseif (!empty($mailResult) && $_POST['mail'] != $form->mail) {
+                $alert = Tools\Alert::render("Cette adresse mail existe déjà !", "danger");            
+            } elseif ($_POST['passwordConfirm'] != $_POST['password']) {              
                 $alert = Tools\Alert::render("Les deux mot de passes ne concorde pas", "danger");
             } else {
-                //[TODO] enlver le mot de passe sur le form
-                if ($password != $form->password) {
-                    $password = md5($password);
-                }
-                $modelUser->update(array(
-                    "nickname" => $nickname,
-                    "mail" => $mail,
-                    "password" => $password,
-                    "id_role" => $role,
-                        ), 'id = ' . $form->id);
-                $alert = Tools\Alert::render("L'utilisateur $nickname a bien été modifier ! ", "success");
+                if (empty($_POST['password'])) {
+                  $_POST['password']= $form->password; 
+                }                
+                $modelUser->updateUser($_POST, $form->id);
+                $alert = Tools\Alert::render("L'utilisateur ".$_POST['nickname']." a bien été modifier ! ", "success");
+                $action = TRUE;
             }
         }
 
@@ -100,10 +100,14 @@ class User extends MainController {
                     "viewSiteName" => "AFDAL",
                     "role" => $role,
                     "formValue" => $form,
+                    "action" => (!empty($action)) ? TRUE : FALSE,
                     "alert" => (!empty($alert)) ? $alert : '')
         );
     }
-
+    /**
+     * [TODO]
+     * @global \Administration\Controllers\type $connexion
+     */
     public function addAction() {
 
         global $connexion;
@@ -114,34 +118,26 @@ class User extends MainController {
 
         if (!empty($_POST['nickname']) && !empty($_POST['mail']) && !empty($_POST['password']) && !empty($_POST['passwordConfirm'])) {
 
-            $nickname = $_POST['nickname'];
-            $mail = $_POST['mail'];
-            $password = $_POST['password'];
-            $passwordConf = $_POST['passwordConfirm'];
-            $role = $_POST['role'];
-            $nicknameResult = $modelUser->fetchAll("nickname= '$nickname' ");
-            $mailResult = $modelUser->fetchAll("mail= '$mail' ");
+            
+            $nicknameResult = $modelUser->getUserByName($_POST['nickname']);
+            $mailResult = $modelUser->getUserByMail($_POST['mail']);
 
 
             if (!empty($nicknameResult)) {
                 $alert = Tools\Alert::render("Ce nom utilisateur existe déjà !", "danger");
+            } elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+                $alert = Tools\Alert::render("le format de l'adresse mail n'est pas bon !", "danger");
             } elseif (!empty($mailResult)) {
                 $alert = Tools\Alert::render("Cette adresse mail existe déjà !", "danger");
-                //[TODO]verif mail http://php.net/manual/fr/function.filter-var.php 
-            } elseif (empty($password)) {
+            } elseif (empty($_POST['password'])) {
                 $alert = Tools\Alert::render("le mote passe est obligatoire !", "danger");
-            } elseif (empty($passwordConf)) {
+            } elseif (empty($_POST['passwordConfirm'])) {
                 $alert = Tools\Alert::render("La confirmation du mot de passe est obligatoire !", "danger");
-            } elseif ($passwordConf != $password) {
+            } elseif ($_POST['passwordConfirm'] != $_POST['password']) {
                 $alert = Tools\Alert::render("Les deux mot de passes ne concorde pas", "danger");
             } else {
-                $modelUser->insert(array(
-                    "nickname" => $nickname,
-                    "mail" => $mail,
-                    "password" => md5($password),
-                    "id_role" => $role,
-                ));
-                $alert = Tools\Alert::render("L'utilisateur $nickname a bien été ajouter! ", "success");
+                $modelUser->insertUser($_POST);
+                $alert = Tools\Alert::render("L'utilisateur ".$_POST['nickname']." a bien été ajouter! ", "success");
             }
         }
 

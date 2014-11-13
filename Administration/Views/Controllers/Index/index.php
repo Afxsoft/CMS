@@ -9,9 +9,9 @@
       <div class="clearfix"></div>
     </div>
     <div class="row admin-home">
-      <a href="/admin/user" class="btn btn-default btn-lg col-md-4 col-sm-4 col-xs-6"><i class="fa fa-wrench"></i>Gestion du site</a>
-      <a href="/admin/user" class="btn btn-default btn-lg col-md-4 col-sm-4 col-xs-6"><i class="fa fa-file"></i>Gestion des pages</a>
-      <a href="/admin/user" class="btn btn-default btn-lg col-md-4 col-sm-4 col-xs-6"><i class="fa fa-user"></i>Gestion des utilisateurs</a>
+      <a href="/admin/user" class="btn btn-default btn-lg col-md-4 col-sm-12 col-xs-12"><i class="fa fa-wrench"></i>Gestion du site</a>
+      <a href="/admin/user" class="btn btn-default btn-lg col-md-4 col-sm-12 col-xs-12"><i class="fa fa-file"></i>Gestion des pages</a>
+      <a href="/admin/user" class="btn btn-default btn-lg col-md-4 col-sm-12 col-xs-12"><i class="fa fa-user"></i>Gestion des utilisateurs</a>
     </div>
 
   </div>
