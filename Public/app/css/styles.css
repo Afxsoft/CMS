@@ -29,6 +29,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: #efefef;
 }
 ol, ul {
 	list-style: none;
@@ -47,41 +48,199 @@ table {
 }
 
 *{
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 'raleway', sans-serif;
+	font-weight: light;
 }
 
-h3{color: #2c72cc;  margin-bottom: 10px;}
+h3{color: #2c72cc;  margin-bottom: 10px; font-size: 18px;}
 
 
 #entete{ background: #093d7f;}
 #entete .btn-connexion{color: white; text-align: center; height: 35px; line-height: 35px; float: right;}
+#entete a{cursor: pointer; text-decoration:none;}
 #entete .btn-recherche{color: white; text-align: center; height: 35px; line-height: 35px; float: right; position: relative;}
-#entete .btn-recherche input{background: transparent; border: 0; border-bottom: 1px solid white; color: white; width: 100%;}
+#entete .btn-recherche input{background: transparent; border: 0; border-bottom: 1px solid white; color: white; width: 100%; border-radius: 0;}
 #entete .btn-recherche i{font-size: 18px; position: absolute; right: 0; top: 7px;}
 
 #slide{height: 250px; background: gray;}
 
-#menu{}
-#menu .onglet{height: 45px; background: #59a2ff; padding: 0 10px; text-align: center; line-height: 45px; cursor: pointer; color: white; font-weight: bold;}
+#menu{margin-bottom: 10px;}
+#menu .onglet{height: 45px; background: #59a2ff; padding: 0 10px; text-align: center; line-height: 45px; cursor: pointer; color: white; font-weight: light; font-size: 20px;}
 #menu .onglet:first-child{padding-left: 0px;}
-#menu .onglet:last-child{padding-right: 0px;}
+#menu .onglet.last{padding-right: 0px;}
 
-#conteneur .block-gauche{height: 154px; padding: 10px;}
+#conteneur div{background-color: #e2e2e2;}
+#conteneur .block-gauche{height: 154px; padding: 10px; position: relative;}
+#conteneur .block-gauche .btn{display: block; float: none; height: 23px; margin: 13px auto 0; width: 85%; height: 15px; line-height: 15px;}
 #conteneur p{text-align: justify;}
 #conteneur .block-milieu{position: relative; overflow: hidden; height: 261px;}
 #conteneur .block-milieu img{height: auto;}
 #conteneur .block-milieu p{background: none repeat scroll 0 0 black; color: white; opacity: 0.615; padding: 11px; position: absolute;}
-#conteneur .block-droite{height: 241px; padding: 10px;}
-#conteneur .trajet input{width: 90%; display: block; }
-#conteneur .trajet label{font-weight: bold; display: block; margin: 10px 0;}
+#conteneur .block-droite{height: 231px; padding: 15px;}
+#conteneur .trajet input{width: 90%; display: block; height: 16px; margin: 0 auto;}
+#conteneur .trajet label{font-weight: bold; display: block; margin: 5px 0;}
+
+/* -- METEO --*/
+#conteneur .meteo-content{left: 28px; position: absolute; top: 69px;}
+#conteneur .meteo-content.nuageux .fa-cloud{color: grey; font-size: 80px; position: absolute; z-index: 2;}
+#conteneur .meteo-content.nuageux .fa-sun-o{color: orange; font-size: 60px; left: 37px; position: absolute; top: -15px; z-index: 1;}
+#conteneur .meteo-info{position: absolute; right: 39px; top: 60px;}
+#conteneur .meteo-info .ville{font-size: 18px;}
+#conteneur .meteo-info .moyenne{}
+#conteneur .meteo-info .max{color: #d43f3a;}
+#conteneur .meteo-info .min{color: #5bc0de;}
+
+#conteneur .ligne-sociale{color: #797979; font-size: 40px; margin-top: 15px;}
 
 
 #article .block{height: 430px; background: pink;}
 
 
+/* ----- ----- ----- ----- ----- ----- CALENDRIER ----- ----- ----- ----- ----- -----  */
+/* ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ---- */
+
+#calendrier{width:490px; float: left;}
+#calendrier .jour{width: 70px; text-align: center; float: left; border-top: 1px solid #c8c8c8;}
+
+/* ---- ---- ---- ---- ---- ---- NAVIGATION ---- ---- ---- ---- ---- ---- */
+/* ---------------------------------------------------------------------------- */
+#navigation{width: 100%; float: left; margin-bottom: 20px;}
+#navigation .onglet{float: left; width: 163px; text-align: center;}
+
+#navigation #mois_actuel{font-weight: bold;}
+#navigation #moisPrecedent, #moisSuivant{cursor: pointer;}
+
+/* ---- ---- ---- ---- ---- ---- ENTETE ---- ---- ---- ---- ---- ---- */
+/* --------------------------------------------------------------------- */
+#calendrier #entete{width: 100%; float: left;}
+#calendrier #entete .jour{border: 0px; height: 25px; line-height: 25px;}
+
+/* ---- ---- ---- ---- ---- ---- CONTENT ---- ---- ---- ---- ---- ---- */
+/* ------------------------------------------------------------------------ */
+#calendrier #content{width: 100%; float: left;}
+#calendrier #content .jour{height: 70px; line-height:60px; font-size: 16px; position: relative; cursor: pointer;}
+#calendrier #content .jour.actif{color: white;}
+#calendrier #content .jourDisable{cursor: default;}
+#calendrier #content .jourCourant{color: red;}
+#calendrier #content .picto{background: none repeat scroll 0 0 black; border-radius: 5px; height: 6px; left: 31px; opacity: 0.28; position: absolute; top: 56px; width: 6px;}
+#calendrier #content .bck-jour{background: none repeat scroll 0 0 black; border-radius: 50px; height: 40px; left: 15px; position: absolute; top: 10px; width: 40px; z-index: -1;}
+
+/* ---- ---- ---- ---- ---- ---- LISTES ---- ---- ---- ---- ---- ---- */
+/* -------------------------------------------------------------------- */
+#calendrier #list{width: 100%; float: left; margin-top: 20px;}
+#calendrier #list .detail_block{width: 100%; float: left; margin-bottom: 4px;}
+#calendrier #list .detail_block div{float: left;}
+#calendrier #list .dateBlock{width: 110px; float: left;}
+#calendrier #list h3{float: left; margin: 0; padding: 0;}
+#calendrier #list .depart{width: 120px; text-align: center;}
+#calendrier #list .content{width: 250px;}
+#calendrier #list .arrivee {width: 120px; text-align: center;}
+#calendrier #list .annee{}
+#calendrier #list .heure{}
+#calendrier #list .type1{border-left: 4px solid red;}
+#calendrier #list .type2{border-left: 4px solid green;}  
+#calendrier #list .type3{border-left: 4px solid blue;}  
+
+/* ---- ---- ---- ---- ---- ---- POP UP ---- ---- ---- ---- ---- ---- */
+/* --------------------------------------------------------------------- */
+
+#calendrier #fade {display: none; background: #000; position: fixed; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.50; z-index: 9999;}
+#calendrier .popup_block{display: none; background: #fff; padding: 20px; float: left; font-size: 1.2em; position: fixed; top: 20%; left: 20%; z-index: 99999; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; width: 260px;}
+#calendrier .close { float: right; margin: -15px -5px 0 0; cursor: pointer;}
+*html #fade {position: absolute;}
+*html .popup_block {position: absolute;}
+
+/* ---- ---- ---- ---- ---- ---- ADMIN ---- ---- ---- ---- ---- ---- */
+/* --------------------------------------------------------------------- */
+#calendrier #admin_content{float: left; margin-left: 20px; width: 50px;}
+#calendrier #admin_content div{font-size: 30px; margin-top: 7px; cursor: pointer; color: #989898;}
 
 
 
+
+
+
+
+
+#calendrier .separation{background: none repeat scroll 0 0 #dfdfdf; border-bottom: 1px solid #acacac; border-top: 1px solid #acacac;}
+
+
+
+#calendrier #eventListContent { height: 240px; overflow: auto;}
+
+
+
+/* ---- ---- ---- ---- ---- ---- AUTRE ---- ---- ---- ---- ---- ---- */
+/* -------------------------------------------------------------------- */
+
+/* ---- Formulaire ---- */
+
+
+
+select, textarea, input{
+    border-radius: 4px;
+    color: #555555;
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 4px 6px;
+    vertical-align: middle;	
+}
+
+label, select, button, input[type="button"], input[type="reset"], input[type="submit"], input[type="radio"], input[type="checkbox"] {
+    cursor: pointer;
+}
+label {display: inline-block; font-size: 15px; margin-bottom: 5px; max-width: 100%;}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+textarea.form-control {height: auto;}
+select, input[type="file"] {
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    font-size: 14px;
+    color: #555555;
+}
+
+.form-group {margin-bottom: 15px;}
+.form-control {background-color: #ffffff; border: 1px solid #cccccc; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s; width: 100%;}
+.form-control:focus {border-color: #66afe9; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6); outline: 0 none;}
+
+.btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #b3b3b3;
+    border-image: none;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    padding: 4px 12px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+     height: 31px;
+}
+
+.btn.large{width : 100%}
 
 
 

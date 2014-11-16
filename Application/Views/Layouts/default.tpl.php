@@ -17,6 +17,8 @@
             }
         </style>
         <link rel="stylesheet" href="/Public/app/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Public/app/css/stylesheet.css">
+        <link rel="stylesheet" href="/Public/app/css/font-awesome.min.css">
         <link rel="stylesheet" href="/Public/app/css/layout.css">
         <link rel="stylesheet" href="/Public/app/css/skeleton.css">
         <link rel="stylesheet" href="/Public/app/css/styles.css">
@@ -45,12 +47,15 @@
 		<div id="slide" class="sixteen columns ">
 			
 		</div>
+		<div class="clear"></div>
 		<div id="menu">
-			<div class="onglet four columns omega">Itinéraire</div>
-			<div class="onglet four columns alpha omega">Evenement</div>
+			<div class="onglet four columns omega">Itinéraires</div>
+			<div class="onglet four columns alpha omega">Evenements</div>
 			<div class="onglet four columns alpha omega">Calendrier</div>
-			<div class="onglet four columns alpha">Info & Tarifs</div>
+			<div class="onglet four columns alpha last">Infos & Tarifs</div>
+			<div class="clear"></div>
 		</div>
+		<div class="clear"></div>
 		<div id="conteneur">
 	      <?php echo $viewContent; ?>
 		</div>
