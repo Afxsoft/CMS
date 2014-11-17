@@ -44,15 +44,19 @@
 		<h3>Réseaux sociaux</h3>
 		<div class="ligne-sociale">
 			<i class="fa fa-facebook"></i>
+			Facebook
 		</div>
 		<div class="ligne-sociale">
 			<i class="fa fa-google-plus"></i>
+			Google 
 		</div>
 		<div class="ligne-sociale">
 			<i class="fa fa-twitter"></i>
+			Twitter
 		</div>
 		<div class="ligne-sociale">
 			<i class="fa fa-rss"></i>
+			Rss
 		</div>
 	</div>
 </div>

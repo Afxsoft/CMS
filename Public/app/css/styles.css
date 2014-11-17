@@ -65,7 +65,7 @@ h3{color: #2c72cc;  margin-bottom: 10px; font-size: 18px;}
 #slide{height: 250px; background: gray;}
 
 #menu{margin-bottom: 10px;}
-#menu .onglet{height: 45px; background: #59a2ff; padding: 0 10px; text-align: center; line-height: 45px; cursor: pointer; color: white; font-weight: light; font-size: 20px;}
+#menu .onglet{height: 45px; background: #59a2ff; padding: 0 10px; text-align: center; line-height: 45px; cursor: pointer; color: white; font-weight: light; font-size: 20px; text-decoration: none;}
 #menu .onglet:first-child{padding-left: 0px;}
 #menu .onglet.last{padding-right: 0px;}
 
@@ -90,7 +90,7 @@ h3{color: #2c72cc;  margin-bottom: 10px; font-size: 18px;}
 #conteneur .meteo-info .max{color: #d43f3a;}
 #conteneur .meteo-info .min{color: #5bc0de;}
 
-#conteneur .ligne-sociale{color: #797979; font-size: 40px; margin-top: 15px;}
+#conteneur .ligne-sociale{color: #797979; font-size: 40px; margin-top: 10px;}
 
 
 #article .block{height: 430px; background: pink;}
@@ -144,9 +144,9 @@ h3{color: #2c72cc;  margin-bottom: 10px; font-size: 18px;}
 /* ---- ---- ---- ---- ---- ---- POP UP ---- ---- ---- ---- ---- ---- */
 /* --------------------------------------------------------------------- */
 
-#calendrier #fade {display: none; background: #000; position: fixed; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.50; z-index: 9999;}
-#calendrier .popup_block{display: none; background: #fff; padding: 20px; float: left; font-size: 1.2em; position: fixed; top: 20%; left: 20%; z-index: 99999; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; width: 260px;}
-#calendrier .close { float: right; margin: -15px -5px 0 0; cursor: pointer;}
+#fade {display: none; background: #000; position: fixed; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.50; z-index: 9999;}
+.popup_block{display: none; background: #fff; padding: 20px; float: left; font-size: 1.2em; position: fixed; top: 20%; left: 20%; z-index: 99999; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; width: 260px;}
+.close { float: right; margin: -15px -5px 0 0; cursor: pointer;}
 *html #fade {position: absolute;}
 *html .popup_block {position: absolute;}
 

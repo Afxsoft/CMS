@@ -18,7 +18,6 @@
         </style>
         <link rel="stylesheet" href="/Public/app/css/font-awesome.min.css">
         <link rel="stylesheet" href="/Public/app/css/stylesheet.css">
-        <link rel="stylesheet" href="/Public/app/css/font-awesome.min.css">
         <link rel="stylesheet" href="/Public/app/css/layout.css">
         <link rel="stylesheet" href="/Public/app/css/skeleton.css">
         <link rel="stylesheet" href="/Public/app/css/styles.css">
@@ -49,10 +48,10 @@
 		</div>
 		<div class="clear"></div>
 		<div id="menu">
-			<div class="onglet four columns omega">Itinéraires</div>
-			<div class="onglet four columns alpha omega">Evenements</div>
-			<div class="onglet four columns alpha omega">Calendrier</div>
-			<div class="onglet four columns alpha last">Infos & Tarifs</div>
+			<a class="onglet four columns omega">Itinéraires</a>
+			<a class="onglet four columns alpha omega">Evenements</a>
+			<a class="onglet four columns alpha omega" href="calendrier">Calendrier</a>
+			<a class="onglet four columns alpha last">Infos & Tarifs</a>
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -70,6 +69,7 @@
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
