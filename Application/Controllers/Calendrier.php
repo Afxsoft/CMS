@@ -11,7 +11,7 @@ class Calendrier extends MainController {
     }
 
     public function indexAction() {
-	$this->add_data_view(array("viewTitle" => "User"));
+	$this->add_data_view(array("viewTitle" => "Home","page" => "calendrier"));
     }
 
 }

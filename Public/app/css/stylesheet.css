@@ -39,6 +39,21 @@
 }
 
 @font-face {
+    font-family: 'geosanslightregular';
+    src: url('../fonts/geosanslight-webfont.eot');
+    src: url('../fonts/geosanslight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/geosanslight-webfont.woff2') format('woff2'),
+         url('../fonts/geosanslight-webfont.woff') format('woff'),
+         url('../fonts/geosanslight-webfont.ttf') format('truetype'),
+         url('../fonts/geosanslight-webfont.svg#geosanslightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*
+@font-face {
     font-family: 'ralewayregular';
     src: url('../fonts/raleway-regular-webfont.eot');
     src: url('../fonts/raleway-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -287,3 +302,4 @@
     font-style: normal;
 
 }
+*/

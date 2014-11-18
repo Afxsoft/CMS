@@ -5,12 +5,14 @@
 </div>
 <div id="calendrier" class="ten columns">
 	<div id="navigation">
-		<div id="moisPrecedent" class="onglet"><i class="fa fa-arrow-left "></i></div>
-		<div id="mois_actuel" class="onglet"></div>
-		<div id="moisSuivant" class="onglet"><i class="fa fa-arrow-right "></i></div>
+		<div id="moisPrecedent" class="onglet"><i class="fa fa-arrow-circle-left"></i></div>
+		<div id="mois_actuel" class="titre"></div>
+		<div id="moisSuivant" class="onglet"><i class="fa fa-arrow-circle-right"></i></div>
+		<div id="btn_show_filtre" class="onglet"><i class="fa fa-sliders"></i></div>
+		<div id="btn_show_admin" class="onglet"><i class="fa fa-cog"></i></div>
 		<span class="clear"></span>
 	</div>
-	<div id="entete">
+	<div id="tete">
 		<div class="jour">L</div>
 		<div class="jour">M</div>
 		<div class="jour">M</div>
@@ -20,10 +22,8 @@
 		<div class="jour">D</div>
 		<span class="clear"></span>
 	</div>
-	
 	<div id="content"></div>
 	<div id="list"></div>
-
 </div>
 <div id="admin_content" class="two columns">
 	<div id="ajoutEventList"><i class="fa fa-plus"></i></div>

@@ -410,4 +410,10 @@ $(document).ready(function(){
 
 	});
 	
+	$('#btn_show_admin').click(function(){
+		$('#calendrier #list').toggle();
+		$('#admin_content').toggle();
+	
+	});
+	
 });
