@@ -1,7 +1,7 @@
-Simple PHP framework
+Simple PHP CMS
 ====================
 
-*That is simple PHP framework using MVC.*
+*That is simple PHP CMS using MVC.*
  
 Prereq
 ------
@@ -20,12 +20,12 @@ How to
         /* Database Conf */
 
         define('DB_HOST', 'localhost');
-        define('DB_NAME', 'mvc');
+        define('DB_NAME', 'mysite');
         define('DB_USER', 'root'); 
         define('DB_PASSWORD', ''); 
         define('DB_CHARSET', 'utf8');
 ```
 
-2 - Framework model is here  /Library/Core/Model.php.
+2 - Take example database Bdd.sql.
 
 *enjoy or not :p*

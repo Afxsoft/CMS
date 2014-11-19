@@ -13,4 +13,8 @@ class Article extends MainModel {
         parent::__construct($cx);
     }
 
+    public function getArticleByAlias($alias) {
+        return $this->fetchAll("alias = '$alias'");
+    }
+
 }
