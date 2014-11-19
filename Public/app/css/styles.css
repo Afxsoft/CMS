@@ -65,18 +65,17 @@ h3{color: #2c72cc;  margin-bottom: 10px; font-size: 18px;}
 #slide{height: 250px; background: gray;}
 
 #menu{margin-bottom: 10px;}
-#menu .onglet{height: 45px; background: #59a2ff; padding: 0 10px; text-align: center; line-height: 45px; cursor: pointer; color: white; font-weight: light; font-size: 20px;}
+#menu .onglet{height: 45px; background: #59a2ff; padding: 0 10px; text-align: center; line-height: 45px; cursor: pointer; color: white; font-weight: light; font-size: 20px; text-decoration: none;}
 #menu .onglet:first-child{padding-left: 0px;}
 #menu .onglet.last{padding-right: 0px;}
 
-#conteneur div{background-color: #e2e2e2;}
-#conteneur .block-gauche{height: 154px; padding: 10px; position: relative;}
+#conteneur .block-gauche{height: 154px; padding: 10px; position: relative; background-color: #e2e2e2;}
 #conteneur .block-gauche .btn{display: block; float: none; height: 23px; margin: 13px auto 0; width: 85%; height: 15px; line-height: 15px;}
 #conteneur p{text-align: justify;}
 #conteneur .block-milieu{position: relative; overflow: hidden; height: 261px;}
 #conteneur .block-milieu img{height: auto;}
 #conteneur .block-milieu p{background: none repeat scroll 0 0 black; color: white; opacity: 0.615; padding: 11px; position: absolute;}
-#conteneur .block-droite{height: 231px; padding: 15px;}
+#conteneur .block-droite{height: 231px; padding: 15px; background-color: #e2e2e2;}
 #conteneur .trajet input{width: 90%; display: block; height: 16px; margin: 0 auto;}
 #conteneur .trajet label{font-weight: bold; display: block; margin: 5px 0;}
 
@@ -90,7 +89,7 @@ h3{color: #2c72cc;  margin-bottom: 10px; font-size: 18px;}
 #conteneur .meteo-info .max{color: #d43f3a;}
 #conteneur .meteo-info .min{color: #5bc0de;}
 
-#conteneur .ligne-sociale{color: #797979; font-size: 40px; margin-top: 15px;}
+#conteneur .ligne-sociale{color: #797979; font-size: 40px; margin-top: 10px;}
 
 
 #article .block{height: 430px; background: pink;}
@@ -99,31 +98,35 @@ h3{color: #2c72cc;  margin-bottom: 10px; font-size: 18px;}
 /* ----- ----- ----- ----- ----- ----- CALENDRIER ----- ----- ----- ----- ----- -----  */
 /* ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ---- */
 
-#calendrier{width:490px; float: left;}
-#calendrier .jour{width: 70px; text-align: center; float: left; border-top: 1px solid #c8c8c8;}
+#calendrier{}
+#calendrier .jour{width: 82px; text-align: center; float: left; border-top: 1px solid #093d7f;}
 
 /* ---- ---- ---- ---- ---- ---- NAVIGATION ---- ---- ---- ---- ---- ---- */
 /* ---------------------------------------------------------------------------- */
-#navigation{width: 100%; float: left; margin-bottom: 20px;}
-#navigation .onglet{float: left; width: 163px; text-align: center;}
+#calendrier #navigation{width: 100%; float: left; margin-bottom: 20px;}
+#calendrier #navigation .onglet{float: left; width: 50px; text-align: center; cursor:pointer; font-size: 30px;}
+#calendrier #navigation .fa-arrow-circle-left, #calendrier #navigation .fa-arrow-circle-right{font-size: 20px; opacity: 0.25;}
+#calendrier #navigation .titre{float: left; width: 100px; text-align: center;}
 
-#navigation #mois_actuel{font-weight: bold;}
-#navigation #moisPrecedent, #moisSuivant{cursor: pointer;}
+#calendrier #navigation #mois_actuel{font-weight: bold; margin-top: 9px;}
+#calendrier #navigation #moisPrecedent, #moisSuivant{cursor: pointer;}
+#calendrier #btn_show_filtre{display:none;}
+#calendrier #btn_show_admin{display:none;}
 
-/* ---- ---- ---- ---- ---- ---- ENTETE ---- ---- ---- ---- ---- ---- */
+/* ---- ---- ---- ---- ---- ---- TETE ---- ---- ---- ---- ---- ---- */
 /* --------------------------------------------------------------------- */
-#calendrier #entete{width: 100%; float: left;}
-#calendrier #entete .jour{border: 0px; height: 25px; line-height: 25px;}
+#calendrier #tete{width: 100%; float: left;}
+#calendrier #tete .jour{border: 0px; height: 25px; line-height: 25px;}
 
 /* ---- ---- ---- ---- ---- ---- CONTENT ---- ---- ---- ---- ---- ---- */
 /* ------------------------------------------------------------------------ */
 #calendrier #content{width: 100%; float: left;}
-#calendrier #content .jour{height: 70px; line-height:60px; font-size: 16px; position: relative; cursor: pointer;}
+#calendrier #content .jour{height: 82px; line-height:60px; font-size: 22px; position: relative; cursor: pointer; font-family: 'geosanslightregular';}
 #calendrier #content .jour.actif{color: white;}
 #calendrier #content .jourDisable{cursor: default;}
 #calendrier #content .jourCourant{color: red;}
-#calendrier #content .picto{background: none repeat scroll 0 0 black; border-radius: 5px; height: 6px; left: 31px; opacity: 0.28; position: absolute; top: 56px; width: 6px;}
-#calendrier #content .bck-jour{background: none repeat scroll 0 0 black; border-radius: 50px; height: 40px; left: 15px; position: absolute; top: 10px; width: 40px; z-index: -1;}
+#calendrier #content .picto{background: none repeat scroll 0 0 #093d7f; border-radius: 5px; height: 6px; left: 40px; opacity: 0.7; position: absolute; top: 62px; width: 6px;}
+#calendrier #content .bck-jour{background: none repeat scroll 0 0 #2c72cc; border-radius: 50px; height: 40px; left: 22px; position: absolute; top: 10px; width: 40px; z-index: -1;}
 
 /* ---- ---- ---- ---- ---- ---- LISTES ---- ---- ---- ---- ---- ---- */
 /* -------------------------------------------------------------------- */
@@ -144,16 +147,16 @@ h3{color: #2c72cc;  margin-bottom: 10px; font-size: 18px;}
 /* ---- ---- ---- ---- ---- ---- POP UP ---- ---- ---- ---- ---- ---- */
 /* --------------------------------------------------------------------- */
 
-#calendrier #fade {display: none; background: #000; position: fixed; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.50; z-index: 9999;}
-#calendrier .popup_block{display: none; background: #fff; padding: 20px; float: left; font-size: 1.2em; position: fixed; top: 20%; left: 20%; z-index: 99999; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; width: 260px;}
-#calendrier .close { float: right; margin: -15px -5px 0 0; cursor: pointer;}
+#fade {display: none; background: #000; position: fixed; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.50; z-index: 9999;}
+.popup_block{display: none; background: #fff; padding: 20px; float: left; font-size: 1.2em; position: fixed; top: 20%; left: 20%; z-index: 99999; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; width: 260px;}
+.close { float: right; margin: -15px -5px 0 0; cursor: pointer;}
 *html #fade {position: absolute;}
 *html .popup_block {position: absolute;}
 
 /* ---- ---- ---- ---- ---- ---- ADMIN ---- ---- ---- ---- ---- ---- */
 /* --------------------------------------------------------------------- */
-#calendrier #admin_content{float: left; margin-left: 20px; width: 50px;}
-#calendrier #admin_content div{font-size: 30px; margin-top: 7px; cursor: pointer; color: #989898;}
+#admin_content{}
+#admin_content div{font-size: 30px; margin-top: 7px; cursor: pointer; color: #989898;}
 
 
 
@@ -162,11 +165,11 @@ h3{color: #2c72cc;  margin-bottom: 10px; font-size: 18px;}
 
 
 
-#calendrier .separation{background: none repeat scroll 0 0 #dfdfdf; border-bottom: 1px solid #acacac; border-top: 1px solid #acacac;}
+.separation{background: none repeat scroll 0 0 #dfdfdf; border-bottom: 1px solid #acacac; border-top: 1px solid #acacac;}
 
 
 
-#calendrier #eventListContent { height: 240px; overflow: auto;}
+#eventListContent { height: 240px; overflow: auto;}
 
 
 
@@ -243,8 +246,5 @@ select, input[type="file"] {
 .btn.large{width : 100%}
 
 
-
-
-
-
+.clear{clear: both;}
 

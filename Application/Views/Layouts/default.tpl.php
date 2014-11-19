@@ -18,10 +18,9 @@
         </style>
         <link rel="stylesheet" href="/Public/app/css/font-awesome.min.css">
         <link rel="stylesheet" href="/Public/app/css/stylesheet.css">
-        <link rel="stylesheet" href="/Public/app/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/Public/app/css/layout.css">
         <link rel="stylesheet" href="/Public/app/css/skeleton.css">
         <link rel="stylesheet" href="/Public/app/css/styles.css">
+        <link rel="stylesheet" href="/Public/app/css/layout.css">
 
 
         <!--[if lt IE 9]>
@@ -33,36 +32,45 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 	<div class="container">
-		<div id="entete" class="sixteen columns">
+		<?php 
 		
-			<?php if(empty($_SESSION['User'])):?>
-			<a href="/login" class="three columns btn-connexion">Inscription</a>
-			<a href="/login" class="three columns btn-connexion offset-by-one">Connexion</a>
-			<?php else:?>
-			<a href="/logout" class="three columns btn-connexion">Se déconnecter</a>
-			<?php endif;?>
-			<div class="four columns btn-recherche"><input type="text"/><i class="fa fa-search"></i></div>
+		if(!isset($page)){
+			$page = "";
+		}
+		if($page != "calendrier"){ 
+		?>
+			<div id="entete" class="sixteen columns">
 			
-		</div>
-		<div id="slide" class="sixteen columns ">
-			
-		</div>
-		<div class="clear"></div>
-		<div id="menu">
-			<div class="onglet four columns omega">Itinéraires</div>
-			<div class="onglet four columns alpha omega">Evenements</div>
-			<div class="onglet four columns alpha omega">Calendrier</div>
-			<div class="onglet four columns alpha last">Infos & Tarifs</div>
+				<?php if(empty($_SESSION['User'])):?>
+				<a href="/login" class="three columns btn-connexion">Inscription</a>
+				<a href="/login" class="three columns btn-connexion offset-by-one">Connexion</a>
+				<?php else:?>
+				<a href="/logout" class="three columns btn-connexion">Se déconnecter</a>
+				<?php endif;?>
+				<div class="four columns btn-recherche"><input type="text"/><i class="fa fa-search"></i></div>
+				
+			</div>
+			<div id="slide" class="sixteen columns ">
+				
+			</div>
 			<div class="clear"></div>
-		</div>
+			<div id="menu">
+				<a class="onglet four columns omega">Itinéraires</a>
+				<a class="onglet four columns alpha omega">Evenements</a>
+				<a class="onglet four columns alpha omega" href="calendrier">Calendrier</a>
+				<a class="onglet four columns alpha last">Infos & Tarifs</a>
+				<div class="clear"></div>
+			</div>
+		
 		<div class="clear"></div>
+		<?php } ?>
 		<div id="conteneur">
 	      <?php echo $viewContent; ?>
 		</div>
-
-	      <footer>
+		<div class="clear"></div>
+		<footer>
 		<p>&copy; Footer 2014</p>
-	      </footer>
+		</footer>
 	</div> <!-- /container -->        
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -70,6 +78,7 @@
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
