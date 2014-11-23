@@ -42,10 +42,8 @@
                       echo '<td>' . $users->id . '</td>';
                       echo '<td>' . $users->nickname . '</td>';
                       echo '<td>' . $users->mail . '</td>';
-                      $phpdate = strtotime($users->update);
-                      $mysqldate = date('Y-m-d H:i:s', $phpdate);
-                      $date = date_create($users->update);
-                      echo '<td>' . date_format($date, 'Y-m-d H:i:s') . '</td>';
+                      $date = new DateTime($users->update);
+                      echo '<td> le ' . $date->format( 'd/m/Y' ) . ' à ' . $date->format( 'H:i:s' ) . '</td>';
                       echo '<td>' . $users->id_role . '</td>';
 
                       echo '<td class="action"><a href="/admin/user/modify/' . $users->id . '" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>';
@@ -56,16 +54,6 @@
                 </tbody>
               </table>
             </div>
-
-            <ul class="pagination pull-right">
-              <li><a href="#">«</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">»</a></li>
-            </ul>
             <div class="clearfix"></div>
           </div>
         </div>

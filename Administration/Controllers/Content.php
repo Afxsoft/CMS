@@ -16,6 +16,27 @@ class Content extends MainController {
     }
 
     /**
+     * Display all element
+     */
+    public function articleAction() {
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
+    }
+
+    public function eventAction() {
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
+    }
+
+    public function newsAction() {
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
+    }
+
+    public function slideAction() {
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
+    }
+    public function presidentwordAction() {
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
+    }
+    /**
      * Add action
      */
     public function addArticleAction() {
@@ -31,6 +52,9 @@ class Content extends MainController {
     }
 
     public function addSlideAction() {
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
+    }
+     public function addPresidentwordAction() {
         $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
     }
 
@@ -52,6 +76,9 @@ class Content extends MainController {
     public function modifySlideAction() {
         $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
     }
+    public function modifyPresidentwordAction() {
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
+    }
 
     /**
      * Delete action
@@ -69,6 +96,9 @@ class Content extends MainController {
     }
 
     public function deleteSlideAction() {
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
+    }
+    public function deletePresidentwordAction() {
         $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL"));
     }
 

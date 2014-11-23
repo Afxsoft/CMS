@@ -22,15 +22,16 @@
 
         <div class="sidey">
           <div class="logo">
-            <h1><a href="/admin/"></i> Sitruc</a></h1>
+            <h1><a href="/admin"></i> Sitruc</a></h1>
+            <a href="/"> Retour sur le front</a>
           </div>
           <div class="sidebar-dropdown"><a href="#" class="br-red"><i class="fa fa-bars"></i></a></div>
           <div class="side-nav" style="">
             <div class="side-nav-block">
               <h4>Menu</h4>
               <ul class="list-unstyled">
-                <li><a href="ui.html"><i class="fa fa-wrench"></i> Configuration</a></li>
-                <li><a href="#"><i class="fa fa-file"></i> Pages </a></li>
+                <li><a href="/admin"><i class="fa fa-wrench"></i> Configuration</a></li>
+                <li><a href="/admin/content"><i class="fa fa-file"></i> Pages </a></li>
                 <li><a href="/admin/user"><i class="fa fa-user"></i> Users</a></li>
               </ul>
             </div>
