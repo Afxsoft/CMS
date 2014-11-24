@@ -1,87 +1,237 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title><?php echo $viewTitle . ' | ' . $viewSiteName ?></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/Public/app/img/favicon.ico">
 
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
-        <link rel="stylesheet" href="/Public/app/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/Public/app/css/stylesheet.css">
-        <link rel="stylesheet" href="/Public/app/css/skeleton.css">
-        <link rel="stylesheet" href="/Public/app/css/styles.css">
-        <link rel="stylesheet" href="/Public/app/css/layout.css">
+    <title><?php echo $viewTitle . ' | ' . $viewSiteName ?></title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="/Public/app/css/bootstrap.css" rel="stylesheet">
 
-        <!--[if lt IE 9]>
-            <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-	<div class="container">
-		<?php 
-		
-		if(!isset($page)){
-			$page = "";
-		}
-		if($page != "calendrier"){ 
-		?>
-			<div id="entete" class="sixteen columns">
-			
-				<?php if(empty($_SESSION['User'])):?>
-				<a href="/login" class="three columns btn-connexion">Inscription</a>
-				<a href="/login" class="three columns btn-connexion offset-by-one">Connexion</a>
-				<?php else:?>
-				<a href="/logout" class="three columns btn-connexion">Se déconnecter</a>
-				<?php endif;?>
-				<div class="four columns btn-recherche"><input type="text"/><i class="fa fa-search"></i></div>
-				
-			</div>
-			<div id="slide" class="sixteen columns ">
-				
-			</div>
-			<div class="clear"></div>
-			<div id="menu">
-				<a class="onglet four columns omega">Itinéraires</a>
-				<a class="onglet four columns alpha omega">Evenements</a>
-				<a class="onglet four columns alpha omega" href="calendrier">Calendrier</a>
-				<a class="onglet four columns alpha last">Infos & Tarifs</a>
-				<div class="clear"></div>
-			</div>
-		
-		<div class="clear"></div>
-		<?php } ?>
-		<div id="conteneur">
-	      <?php echo $viewContent; ?>
-		</div>
-		<div class="clear"></div>
-		<footer>
-		<p>&copy; Footer 2014</p>
-		</footer>
-	</div> <!-- /container -->        
-	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+    <!-- Custom styles for this template -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/Public/app/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="/Public/app/css/elements.css" />
+    <link rel="stylesheet" type="text/css" href="/Public/app/css/custom.css" />
+    <link href="/Public/app/css/font-awesome.min.css" rel="stylesheet">
 
-        <script src="js/vendor/bootstrap.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond./Public/app/js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
-	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-        <script src="js/main.js"></script>
+  <body>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- Navbar
+      ============= -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Sitruc</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Qui somme nous ?</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nos tarifs</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Itiniraire</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nous contacter</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hidden-xs">
+            <!-- Sign in & Sign up -->
+            <li id="sign-up" class="show"><a href="sign-up.html"><i class="fa fa-calendar"></i> Calendrier</a></li>
+            <!-- Signed in. Profile Menu -->
+            <li id="cogs-menu" class="hidden">
+              <a href="edit-profile.html">
+                <i class="fa fa-gears fa-lg"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">    
+      <!-- Showcase
+        ================ -->
+      <?php if(!empty($front)) :?>
+      <div id="hp-slider" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#hp-slider" data-slide-to="0" class=""></li>
+          <li data-target="#hp-slider" data-slide-to="1" class="active"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <!-- Slider #1 -->
+          <div class="item">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <h1 class="animated slideInDown">Mini-bus pour le transport du personnel de votre société</h1>
+                </div>
+                <div class="col-md-6 hidden-sm hidden-xs">
+                  <div class="macbook">
+                    <img src="/Public/app/slide/minibus.png" class="img-responsive" alt="...">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slider #2 -->
+          <div class="item active">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <h1 class="animated slideInDown">Renouvelement de nos bus</h1>
+                  <div class="list">
+                    <ul>
+                      <li class="animated slideInLeft first delay"><span><i class="fa fa-smile-o"></i> <span>Toujours autant de confort.</span></span></li>
+                      <li class="animated slideInLeft second delay"><span><i class="fa fa-life-ring"></i> <span>La sécurité une priorité.</span></span></li>
+                      <li class="animated slideInLeft third delay"><span><i class="fa  fa-recycle"></i> <span>bus écolo.</span></span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6 hidden-sm hidden-xs">
+                  <div class="macbook">
+                    <img src="/Public/app/slide/bus.png" class="img-responsive" alt="...">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php else :?>
+        <div class="section-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="animated slideInLeft"><span>Pricing Page</span></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php endif;?>
+
+        <!-- Controls -->
+        <a class="carousel-arrow carousel-arrow-prev" href="#hp-slider" data-slide="prev">
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="carousel-arrow carousel-arrow-next" href="#hp-slider" data-slide="next">
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </div>
+      <div class="container">
+       <?php echo $viewContent; ?>
+      </div>
+    </div>
+
+    <!-- Foooter
+    ================== -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <!-- Contact Us 
+          =================  -->
+          <div class="col-sm-4">
+            <div class="headline"><h3>Nous contacter</h3></div>
+            <div class="content">
+              <p>
+                127 Boulevard de la Révolution<br />
+                23 657 Gothan City<br />
+                Tèl: +0 000 000 00 00<br />
+                Fax: +0 000 000 00 00<br />
+                Email: <a href="mailto:contact@sitruc">contact@sitruc</a>
+              </p>
+            </div>
+          </div>
+          <!-- Social icons 
+          ===================== -->
+          <div class="col-sm-4">
+            <div class="headline"><h3>Réseau sociale</h3></div>
+            <div class="content social">
+              <ul>
+                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-pinterest"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-github"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-vk"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <!-- Subscribe 
+          =============== -->
+          <div class="col-sm-4">
+            <div class="headline"><h3>Newsletter</h3></div>
+            <div class="content">
+              <form class="form" role="form">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                      <label class="sr-only" for="subscribe-email">Email address</label>
+                      <input type="email" class="form-control" id="subscribe-email" placeholder="Enter email">
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">OK</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Legal 
+    ============= -->
+    <div class="legal">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <p>&copy; Sitruc. <a href="/page/mention-legale">Mention légal</a> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/Public/app/js/bootstrap.min.js"></script>
+    <script src="/Public/app/js/custom.js"></script>
+    <script src="/Public/app/js/scrolltopcontrol.js"></script><!-- Scroll to top javascript -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -90,5 +240,5 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
-    </body>
+  </body>
 </html>
