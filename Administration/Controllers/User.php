@@ -19,7 +19,7 @@ class User extends MainController {
         $cx = $connexion->get_cx();
         $modelUser = new \Application\Models\User($cx);
         $result = $modelUser->fetchAll();
-        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "AFDAL", "user" => $result));
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "SITRUC", "user" => $result));
     }
     /**
      * [TODO]
@@ -46,7 +46,7 @@ class User extends MainController {
         $this->add_data_view(
                 array(
                     "viewTitle" => "Admin",
-                    "viewSiteName" => "AFDAL",
+                    "viewSiteName" => "SITRUC",
                     "action" => (!empty($action)) ? TRUE : FALSE,
                     "alert" => (!empty($alert)) ? $alert : '')
         );
@@ -97,7 +97,7 @@ class User extends MainController {
         $this->add_data_view(
                 array(
                     "viewTitle" => "Admin - Add User",
-                    "viewSiteName" => "AFDAL",
+                    "viewSiteName" => "SITRUC",
                     "role" => $role,
                     "formValue" => $form,
                     "action" => (!empty($action)) ? TRUE : FALSE,
@@ -144,7 +144,7 @@ class User extends MainController {
         $this->add_data_view(
                 array(
                     "viewTitle" => "Admin - Add User",
-                    "viewSiteName" => "AFDAL",
+                    "viewSiteName" => "SITRUC",
                     "role" => $role,
                     "alert" => (!empty($alert)) ? $alert : '')
         );

@@ -1,9 +1,8 @@
-<div class="container">
-  <h1>404 Not found <span>:(</span></h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
-  <p>It looks like this was the result of either:</p>
-  <ul>
-    <li>a mistyped address</li>
-    <li>an out-of-date link</li>
-  </ul>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="digits">
+      4<i class="fa fa-meh-o animated flipInX" id="smile"></i>4
+    </div>
+    <h1>La page que vous essayez d'accéder est introuvable</h1
+  </div>
 </div>

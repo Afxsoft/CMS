@@ -18,12 +18,16 @@ class Content extends MainController {
         $cx = $connexion->get_cx();
         $modelArticle = new \Administration\Models\Article($cx);
         $content = $modelArticle->getArticleByAlias($_GET['params']);
-
         if (!empty($content)) {
-
+            $calendar = FALSE;
+            if($_GET['params'] == "calendrier"){
+            $calendar = TRUE;
+                
+            }
             $this->add_data_view(array(
                 "viewTitle" => $content[0]->title,
                 "viewSiteName" => "Sitruc",
+                "calendar" => $calendar,
                 "pageContent" => $content[0]
             ));
         }else{

@@ -11,7 +11,7 @@ class _404 extends MainController {
     }
 
     public function indexAction() {
-      $this->add_data_view(array("viewTitle" => "404","viewSiteName" => "AFDAL"));
+      $this->add_data_view(array("viewTitle" => "404","viewSiteName" => "SITRUC"));
     }
 
 }

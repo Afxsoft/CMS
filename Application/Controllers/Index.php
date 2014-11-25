@@ -11,7 +11,7 @@ class Index extends MainController {
     }
 
     public function indexAction() {
-        $this->add_data_view(array("viewTitle" => "Home","viewSiteName" => "AFDAL","front"=> TRUE));
+        $this->add_data_view(array("viewTitle" => "Home","viewSiteName" => "SITRUC","front"=> TRUE));
     }
 
 }

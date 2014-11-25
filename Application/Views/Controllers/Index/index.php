@@ -6,23 +6,23 @@
       <ul>
         <li>
           <i class="fa fa-compass fa-3x"></i>
-          <p>Itinéraires<br /><a href="#">Faire un itiniraire</a></p>
+          <p>Itinéraires<br /><a href="/page/itineraire">Faire un itinéraire</a></p>
         </li>
         <li>
           <i class="fa fa-eur fa-3x"></i>
-          <p>Infos & Tarifs<br /><a href="#">Connaitre nos tarifs</a></p>
+          <p>Infos & Tarifs<br /><a href="/page/infos-et-tarifs">Connaitre nos tarifs</a></p>
         </li>
         <li>
           <i class="fa fa-users fa-3x"></i>
-          <p>Notre équipe<br /><a href="#">Voir l'enssemble du personnel</a></p>
+          <p>Notre équipe<br /><a href="/page/notre-equipe">Voir l'enssemble du personnel</a></p>
         </li>
         <li>
           <i class="fa fa-calendar fa-3x"></i>
-          <p>Calendrier<br /><a href="#">Consulter le calendrier</a></p>
+          <p>Calendrier<br /><a href="/page/calendrier">Consulter le calendrier</a></p>
         </li>
         <li>
           <i class="fa fa-tty fa-3x"></i>
-          <p>Nous contacter<br /><a href="#">Nous somme à votre écoute pour tout besoin</a></p>
+          <p>Nous contacter<br /><a href="/page/contact">Nous somme à votre écoute pour tout besoin</a></p>
         </li>
       </ul>
 

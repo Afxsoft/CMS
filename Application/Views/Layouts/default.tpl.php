@@ -12,12 +12,20 @@
     <!-- Bootstrap core CSS -->
     <link href="/Public/app/css/bootstrap.css" rel="stylesheet">
 
+    <?php if (!empty($calendar)) : ?>
+        <link rel="stylesheet" href="/Public/app/css/stylesheet.css">
+        <link rel="stylesheet" href="/Public/app/css/skeleton.css">
+        <link rel="stylesheet" href="/Public/app/css/styles.css">
+        <link rel="stylesheet" href="/Public/app/css/layout.css">
+        <link rel="stylesheet" href="/Public/app/css/jquery-ui.min.css">
+    <?php endif; ?>
     <!-- Custom styles for this template -->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/Public/app/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="/Public/app/css/elements.css" />
     <link rel="stylesheet" type="text/css" href="/Public/app/css/custom.css" />
     <link href="/Public/app/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Public/app/css/jquery-ui-1.8.12.custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -43,24 +51,24 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Qui somme nous ?</a>
+              <a href="/page/qui-sommes-nous" >Qui somme nous ?</a>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nos tarifs</a>
+              <a href="/page/infos-et-tarifs">Nos tarifs</a>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Itiniraire</a>
+              <a href="/page/itineraire" >Itinéraire</a>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nous contacter</a>
+              <a href="/page/contact" >Nous contacter</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right hidden-xs">
             <!-- Sign in & Sign up -->
-            <li id="sign-up" class="show"><a href="sign-up.html"><i class="fa fa-calendar"></i> Calendrier</a></li>
+            <li id="sign-up" class="show"><a href="/page/calendrier/"><i class="fa fa-calendar"></i> Calendrier</a></li>
             <!-- Signed in. Profile Menu -->
             <li id="cogs-menu" class="hidden">
-              <a href="edit-profile.html">
+              <a href="/page/calendrier/">
                 <i class="fa fa-gears fa-lg"></i>
               </a>
             </li>
@@ -72,77 +80,83 @@
     <div class="wrapper">    
       <!-- Showcase
         ================ -->
-      <?php if(!empty($front)) :?>
-      <div id="hp-slider" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#hp-slider" data-slide-to="0" class=""></li>
-          <li data-target="#hp-slider" data-slide-to="1" class="active"></li>
-        </ol>
+      <?php if (!empty($front)) : ?>
+          <div id="hp-slider" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#hp-slider" data-slide-to="0" class=""></li>
+              <li data-target="#hp-slider" data-slide-to="1" class="active"></li>
+            </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <!-- Slider #1 -->
-          <div class="item">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-6 col-sm-12">
-                  <h1 class="animated slideInDown">Mini-bus pour le transport du personnel de votre société</h1>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <!-- Slider #1 -->
+              <div class="item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                      <h1 class="animated slideInDown">Mini-bus pour le transport du personnel de votre société</h1>
+                    </div>
+                    <div class="col-md-6 hidden-sm hidden-xs">
+                      <div class="macbook">
+                        <img src="/Public/app/slide/minibus.png" class="img-responsive" alt="...">
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-6 hidden-sm hidden-xs">
-                  <div class="macbook">
-                    <img src="/Public/app/slide/minibus.png" class="img-responsive" alt="...">
+              </div>
+              <!-- Slider #2 -->
+              <div class="item active">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                      <h1 class="animated slideInDown">Renouvelement de nos bus</h1>
+                      <div class="list">
+                        <ul>
+                          <li class="animated slideInLeft first delay"><span><i class="fa fa-smile-o"></i> <span>Toujours autant de confort.</span></span></li>
+                          <li class="animated slideInLeft second delay"><span><i class="fa fa-life-ring"></i> <span>La sécurité, une priorité.</span></span></li>
+                          <li class="animated slideInLeft third delay"><span><i class="fa  fa-recycle"></i> <span>Bus écolo.</span></span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-md-6 hidden-sm hidden-xs">
+                      <div class="macbook">
+                        <img src="/Public/app/slide/bus.png" class="img-responsive" alt="...">
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <!-- Controls -->
+            <a class="carousel-arrow carousel-arrow-prev" href="#hp-slider" data-slide="prev">
+              <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="carousel-arrow carousel-arrow-next" href="#hp-slider" data-slide="next">
+              <i class="fa fa-angle-right"></i>
+            </a>
           </div>
-          <!-- Slider #2 -->
-          <div class="item active">
+      <?php elseif (empty($e404)) : ?>
+          <div class="section-header">
             <div class="container">
               <div class="row">
-                <div class="col-md-6 col-sm-12">
-                  <h1 class="animated slideInDown">Renouvelement de nos bus</h1>
-                  <div class="list">
-                    <ul>
-                      <li class="animated slideInLeft first delay"><span><i class="fa fa-smile-o"></i> <span>Toujours autant de confort.</span></span></li>
-                      <li class="animated slideInLeft second delay"><span><i class="fa fa-life-ring"></i> <span>La sécurité une priorité.</span></span></li>
-                      <li class="animated slideInLeft third delay"><span><i class="fa  fa-recycle"></i> <span>bus écolo.</span></span></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-6 hidden-sm hidden-xs">
-                  <div class="macbook">
-                    <img src="/Public/app/slide/bus.png" class="img-responsive" alt="...">
-                  </div>
+                <div class="col-md-12">
+                  <h1 class="animated slideInLeft"><span> <?php echo $pageContent->title; ?> </span></h1>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      <?php else :?>
-        <div class="section-header">
+      <?php endif; ?>
+      <?php if (!empty($e404)) : ?>
+          <div class="not-found">
+          <?php endif; ?>
+
         <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h1 class="animated slideInLeft"><span>Pricing Page</span></h1>
-            </div>
-          </div>
+            <?php echo $viewContent; ?>
         </div>
-      </div>
-      <?php endif;?>
-
-        <!-- Controls -->
-        <a class="carousel-arrow carousel-arrow-prev" href="#hp-slider" data-slide="prev">
-          <i class="fa fa-angle-left"></i>
-        </a>
-        <a class="carousel-arrow carousel-arrow-next" href="#hp-slider" data-slide="next">
-          <i class="fa fa-angle-right"></i>
-        </a>
-      </div>
-      <div class="container">
-       <?php echo $viewContent; ?>
-      </div>
+        <?php if (!empty($e404)) : ?>
+          </div>
+      <?php endif; ?>
     </div>
 
     <!-- Foooter
@@ -227,18 +241,40 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/Public/app/js/bootstrap.min.js"></script>
-    <script src="/Public/app/js/custom.js"></script>
-    <script src="/Public/app/js/scrolltopcontrol.js"></script><!-- Scroll to top javascript -->
+    <?php if (!empty($calendar)) : ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/Public/app/js/jquery-ui.min.js"></script>
+        <script src="/Public/app/js/objet.js"></script>
+        <script src="/Public/app/js/main.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="/Public/app/js/bootstrap.min.js"></script>
+        <script src="/Public/app/js/custom.js"></script>
+        <script src="/Public/app/js/scrolltopcontrol.js"></script>
+    <?php else: ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="/Public/app/js/jquery-ui-1.8.12.custom.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=false&language=fr"></script>
+        <script src="/Public/app/js/functions.js"></script>
+        <script src="/Public/app/js/bootstrap.min.js"></script>
+        <script src="/Public/app/js/custom.js"></script>
+        <script src="/Public/app/js/scrolltopcontrol.js"></script><!-- Scroll to top javascript -->
+    <?php endif; ?>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+    <script>
+        (function (b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                    function () {
+                        (b[l].q = b[l].q || []).push(arguments)
+                    });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+    </script>
   </body>
 </html>
