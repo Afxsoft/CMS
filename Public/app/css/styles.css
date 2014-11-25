@@ -85,7 +85,7 @@
 /* --------------------------------------------------------------------- */
 #filtre_content .filtre_block{font-size: 20px; margin-top: 10px; color: orange;}
 #filtre_content .filtre_block .fa-tag{margin-right: 10px;}
-#filtre_content .filtre_block label{display: inline-block; font-size: 15px; margin-right: 18px; width: 61px;}
+#filtre_content .filtre_block label{display: inline-block; font-size: 15px; margin-right: 18px; width: 61px; font-family: 'Raleway'}
 #filtre_content .filtre_block.scolaire{color: #72a53b}
 #filtre_content .filtre_block.transport{color: #00b4ff}
 #filtre_content .filtre_block.culturel{color: #e74c3c}
