@@ -247,6 +247,7 @@ function constructDetailLine(objEv){
 		htmlLine += '<div class="ligne depart"><div class="rond"></div><div class="barre"></div><div class="date">'+date_depart+'</div></div>';
 		htmlLine += '<div class="clear"></div>';
 		htmlLine += '<div class="ligne arrivee"><div class="rond"></div><div class="barre"></div><div></div><div class="date">'+date_arrivee+'</div></div>';
+		htmlLine += '<div class="ligne reserver"><button class="btn btn-green" type="submit">Reserver</button></div>';
 	htmlLine += '</div>';
 	return htmlLine;
 }
@@ -432,6 +433,7 @@ $(document).ready(function(){
 	});
 	
 	$('.close, #fade').click(function() { 
+		resetAddForm();
 		$('#fade , .popup_block').fadeOut();
 		return false;
 	});
