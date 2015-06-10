@@ -23,9 +23,9 @@ class Settings {
         /* Database Conf */
 
         define('DB_HOST', 'localhost');
-        define('DB_NAME', 'sitruc');
+        define('DB_NAME', 'cms');
         define('DB_USER', 'root');
-        define('DB_PASSWORD', '');
+        define('DB_PASSWORD', 'root');
         define('DB_CHARSET', 'utf8');
     }
 
