@@ -10,8 +10,9 @@ class User extends MainController {
     public function __construct() {
         parent::__construct();
     }
+
     /**
-     * [TODO]
+     * Index controller of user model
      * @global \Administration\Controllers\type $connexion
      */
     public function indexAction() {
@@ -19,16 +20,16 @@ class User extends MainController {
         $cx = $connexion->get_cx();
         $modelUser = new \Application\Models\User($cx);
         $result = $modelUser->fetchAll();
-        $this->add_data_view(array("viewTitle" => "Admin - Users", "viewSiteName" => "SITRUC", "user" => $result));
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "user" => $result));
     }
+
     /**
-     * [TODO]
+     * Delete controller of user model
      * @global \Administration\Controllers\type $connexion
      */
     public function deleteAction() {
-        if ($_GET['params'] === NULL || $_GET['params'] == '' || !is_numeric($_GET['params'])) {
-            header('Location: /admin/404');
-        }
+
+        Tools\Helper::checkUrlParamsIsNumeric();
         global $connexion;
         $cx = $connexion->get_cx();
         $modelUser = new \Application\Models\User($cx);
@@ -44,22 +45,18 @@ class User extends MainController {
         }
 
         $this->add_data_view(
-                array(
-                    "viewTitle" => "Admin",
-                    "viewSiteName" => "SITRUC",
-                    "action" => (!empty($action)) ? TRUE : FALSE,
-                    "alert" => (!empty($alert)) ? $alert : '')
+                array( "viewTitle" => "Admin",
+                       "action" => (!empty($action)) ? TRUE : FALSE,
+                       "alert" => (!empty($alert)) ? $alert : '')
         );
     }
+
     /**
-     * [TODO]
+     * Modify controller of user model
      * @global type $connexion
      */
     public function modifyAction() {
-        //Vérification du GET
-        if ($_GET['params'] === NULL || $_GET['params'] == '' || !is_numeric($_GET['params'])) {
-            header('Location: /admin/404');
-        }
+        Tools\Helper::checkUrlParamsIsNumeric();
         global $connexion;
         $cx = $connexion->get_cx();
         $modelUser = new \Application\Models\User($cx);
@@ -97,15 +94,15 @@ class User extends MainController {
         $this->add_data_view(
                 array(
                     "viewTitle" => "Admin - Add User",
-                    "viewSiteName" => "SITRUC",
                     "role" => $role,
                     "formValue" => $form,
                     "action" => (!empty($action)) ? TRUE : FALSE,
                     "alert" => (!empty($alert)) ? $alert : '')
         );
     }
+
     /**
-     * [TODO]
+     * Add controller of user model
      * @global \Administration\Controllers\type $connexion
      */
     public function addAction() {
@@ -144,10 +141,19 @@ class User extends MainController {
         $this->add_data_view(
                 array(
                     "viewTitle" => "Admin - Add User",
-                    "viewSiteName" => "SITRUC",
                     "role" => $role,
                     "alert" => (!empty($alert)) ? $alert : '')
         );
+    }
+
+    public function viewAction(){
+        Tools\Helper::checkUrlParamsIsNumeric();
+        global $connexion;
+        $cx = $connexion->get_cx();
+        $modelUser = new \Application\Models\User($cx);
+        $user = $modelUser->findById($_GET['params']);
+        $user = $user[0];
+        $this->add_data_view(array("viewTitle" => "Admin - Users", "user" => $user));
     }
 
 }
