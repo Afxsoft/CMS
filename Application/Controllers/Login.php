@@ -17,7 +17,7 @@ class Login extends MainController
     public function indexAction()
     {
         global $connexion;
-        $cx = $connexion->get_cx();
+        $cx = $connexion->getCx();
         if (!empty($_SESSION['User'])) {
             header("location:/admin");
         }

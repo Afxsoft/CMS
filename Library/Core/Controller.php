@@ -5,7 +5,8 @@ namespace Library\Core;
 /**
  * [ Main Controller ]
  */
-class Controller {
+class Controller
+{
 
     protected $source_root;
     protected $source_link;
@@ -18,20 +19,25 @@ class Controller {
         "alert" => "",
     );
 
-    public function __construct() {
-        //
+    public function __construct()
+    {
     }
 
     /**
-     * render_view($i).
+     * renderView($i).
      * This method displays the Result of the view of a controller
      * @param array $i
      */
-    public function render_view($i) {
-
+    public function renderView($i)
+    {
+        // @TODO Make a clean array to get all vars.
         extract($i);
 
-        $pathViews = $this->source_root . "Views/Controllers/" . str_replace($this->source_link, "", $controller) . "/" . str_replace("Action", "", $action) . ".php";
+        $pathViews = $this->source_root . "Views/Controllers/" . str_replace(
+            $this->source_link,
+                "",
+                $controller,
+            ) . "/" . str_replace("Action", "", $action) . ".php";
         if (file_exists($pathViews)) {
 
             header("Content-type: " . $this->responseHeader . ";charset=UTF-8");
@@ -62,16 +68,18 @@ class Controller {
      * This method allows retrieve the layout
      * @return string
      */
-    protected function get_layout() {
+    protected function get_layout()
+    {
         return $this->layout;
     }
 
     /**
      * set_responseHeader($value)
      * This method adds the required headers
-     * @param type $value03f04f2ef5b98d5d646c93355e4ffb3d32c8626f
+     * @param type $value
      */
-    protected function set_responseHeader($value) {
+    protected function set_responseHeader($value)
+    {
         $possibility = array(
             "txt" => "text/plain",
             "html" => "text/html",
@@ -90,7 +98,8 @@ class Controller {
      * This method allows to add variables to the view
      * @param array $data
      */
-    public function add_data_view($data) {
+    public function add_data_view($data)
+    {
         $this->vars = array_merge($this->vars, $data);
     }
 
@@ -98,7 +107,8 @@ class Controller {
      * Function set_layout() put a layout.
      * @param type $layout
      */
-    public function set_layout($layout) {
+    public function set_layout($layout)
+    {
         $layout_file_path = APP_ROOT . "Views/Layouts/" . $layout . ".tpl.php";
         if ((file_exists($layout_file_path))) {
             $this->layout = $layout;

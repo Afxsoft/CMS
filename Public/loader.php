@@ -27,14 +27,14 @@ $Settings = new Application\Configs\Settings();
 $Settings->get_variables();
 
 $connexion = new Library\Core\Connexion();
-$connexion->connect_db();
+$connexion->connectDb();
 
 
 if ($_GET['end'] == 'admin') {
     $AdminRouter = new Administration\Router\AdminRouter();
-    $AdminRouter->dispatch_page($url);
+    $AdminRouter->dispatchPage($url);
 } else {
 
     $AppRouter = new Application\Router\AppRouter();
-    $AppRouter->dispatch_page($url);
+    $AppRouter->dispatchPage($url);
 }

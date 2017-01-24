@@ -21,7 +21,7 @@ class Content extends MainController
     public function pageAction()
     {
         global $connexion;
-        $cx = $connexion->get_cx();
+        $cx = $connexion->getCx();
         $modelArticle = new Article($cx);
         $content = $modelArticle->getArticleByAlias($_GET['params']);
         if (!empty($content)) {
