@@ -4,23 +4,26 @@ namespace Library\Core;
 
 use PDO;
 
-abstract class Model {
+abstract class Model
+{
 
     private $db;
     protected $table;
     protected $primary;
 
-    public function __construct($cx) {
+    public function __construct($cx)
+    {
         $this->db = $cx;
     }
 
     /**
      * findById() return all fields selected of an element id
-     * @param int $value_primary 
+     * @param int $value_primary
      * @param string $fields
      * @return array
      */
-    public function findById($value_primary, $fields = '*') {
+    public function findById($value_primary, $fields = '*')
+    {
         if (!empty($value_primary)) {
             $query = "SELECT $fields FROM `" . $this->table . "` WHERE `" . $this->primary . "`='$value_primary'";
             $sql = $this->db->prepare($query);
@@ -33,12 +36,13 @@ abstract class Model {
     }
 
     /**
-     * fetchAll() return  all element of table with selected criteria 
+     * fetchAll() return  all element of table with selected criteria
      * @param string $where
      * @param string $fields
      * @return array
      */
-    public function fetchAll($where = 1, $fields = '*') {
+    public function fetchAll($where = '1', $fields = '*')
+    {
         $query = "SELECT $fields FROM `" . $this->table . "` WHERE $where";
         $sql = $this->db->prepare($query);
         $sql->execute();
@@ -47,11 +51,12 @@ abstract class Model {
     }
 
     /**
-     * insert() allows you to add an ocurrence inside table 
+     * insert() allows you to add an ocurrence inside table
      * @param array $data
      * @return boolean
      */
-    public function insert($data) {
+    public function insert($data)
+    {
         $fieldsList = "";
         $valuesList = "";
 
@@ -74,7 +79,8 @@ abstract class Model {
      * @param string $where
      * @return boolean
      */
-    public function update($data, $where) {
+    public function update($data, $where)
+    {
         if (!empty($where)) {
             $fieldsListAndValue = "";
             foreach ($data as $k => $v) {
@@ -94,7 +100,8 @@ abstract class Model {
      * @param type $value_primary
      * @return boolean
      */
-    public function delete($value_primary) {
+    public function delete($value_primary)
+    {
         if (!empty($value_primary)) {
             $query = "DELETE FROM `" . $this->table . "` WHERE `" . $this->primary . "`='$value_primary' LIMIT 1";
             $sql = $this->db->prepare($query);
@@ -108,7 +115,8 @@ abstract class Model {
      * @param type $where
      * @return boolean
      */
-    public function massDelete($where) {
+    public function massDelete($where)
+    {
         if (!empty($where)) {
             $query = "DELETE FROM `" . $this->table . "` WHERE $where";
             $sql = $this->db->prepare($query);

@@ -2,9 +2,12 @@
 
 namespace Application\Configs;
 
-class Settings {
+// @TODO Change php file settings to YML
+class Settings
+{
 
-    public function __construct() {
+    public function __construct()
+    {
 
         $admin_root = str_replace('Public/index.php', 'Administration/', $_SERVER["SCRIPT_FILENAME"]);
         $app_root = str_replace('Public/index.php', 'Application/', $_SERVER["SCRIPT_FILENAME"]);
@@ -18,7 +21,7 @@ class Settings {
         define('LIB_ROOT', $lib_root);
         define('LINK_ROOT', '/');
         define('WEB_ROOT', $web_root);
-        define('HOST_ROOT', 'http://'.$_SERVER['HTTP_HOST']);
+        define('HOST_ROOT', 'http://' . $_SERVER['HTTP_HOST']);
 
         /* Database Conf */
 
@@ -29,7 +32,8 @@ class Settings {
         define('DB_CHARSET', 'utf8');
     }
 
-    public function get_variables() {
+    public function getVariables()
+    {
         // Récupération de l'adresse, et on l'éclate sous forme de tableau
         $urlTmp = explode('/', $_GET['page']);
 
@@ -42,13 +46,13 @@ class Settings {
 
         // Si après avoir supprimé le controller et action de la chaine,il reste quelque chose, on boucle dessus pour créer les
         // variables $_GET['params'];
-        if (count($urlTmp) > 0):
+        if (count($urlTmp) > 0) :
             $i = 0;
-            foreach ($urlTmp as $get):
+            foreach ($urlTmp as $get) :
                 $_GET['params' . (($i == 0) ? '' : $i)] = $get;
                 $i++;
             endforeach;
-        else:
+        else :
             $_GET['params'] = null;
         endif;
     }

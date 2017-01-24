@@ -17,7 +17,7 @@ class User extends MainController {
      */
     public function indexAction() {
         global $connexion;
-        $cx = $connexion->get_cx();
+        $cx = $connexion->getCx();
         $modelUser = new \Application\Models\User($cx);
         $result = $modelUser->fetchAll();
         $this->add_data_view(array("viewTitle" => "Admin - Users", "user" => $result));
@@ -31,7 +31,7 @@ class User extends MainController {
 
         Tools\Helper::checkUrlParamsIsNumeric();
         global $connexion;
-        $cx = $connexion->get_cx();
+        $cx = $connexion->getCx();
         $modelUser = new \Application\Models\User($cx);
         if (!empty($_POST['submit'])) {
 
@@ -58,7 +58,7 @@ class User extends MainController {
     public function modifyAction() {
         Tools\Helper::checkUrlParamsIsNumeric();
         global $connexion;
-        $cx = $connexion->get_cx();
+        $cx = $connexion->getCx();
         $modelUser = new \Application\Models\User($cx);
         $form = $modelUser->findById($_GET['params']);
         $form = $form[0];
@@ -108,7 +108,7 @@ class User extends MainController {
     public function addAction() {
 
         global $connexion;
-        $cx = $connexion->get_cx();
+        $cx = $connexion->getCx();
         $modelRole = new \Administration\Models\Role($cx);
         $role = $modelRole->fetchAll();
         $modelUser = new \Application\Models\User($cx);
@@ -149,7 +149,7 @@ class User extends MainController {
     public function viewAction(){
         Tools\Helper::checkUrlParamsIsNumeric();
         global $connexion;
-        $cx = $connexion->get_cx();
+        $cx = $connexion->getCx();
         $modelUser = new \Application\Models\User($cx);
         $user = $modelUser->findById($_GET['params']);
         $user = $user[0];
