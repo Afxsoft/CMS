@@ -3,7 +3,7 @@
 namespace Application\Controllers;
 
 use Application\Controllers\AppController as MainController;
-
+// @TODO change 404 class name
 class _404 extends MainController
 {
 

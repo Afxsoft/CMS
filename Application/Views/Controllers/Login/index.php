@@ -3,7 +3,8 @@
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-justified">
-        <li class="active"><a href="#login" data-toggle="tab" class="br-lblue"><i class="fa fa-sign-in"></i> LOGIN</a></li>
+        <li class="active"><a href="#login" data-toggle="tab" class="br-lblue"><i class="fa fa-sign-in"></i> LOGIN</a>
+        </li>
     </ul>
 
     <!-- Tab panes -->

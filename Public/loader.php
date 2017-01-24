@@ -1,19 +1,19 @@
 <?php
 
-
-if(PHP_VERSION < 5.3) {
+// @TODO Put internalisation
+if (PHP_VERSION < 7) {
     echo "Votre version de PHP est obsolète";
     exit();
 }
 
-function autoload($className){
+function autoload($className)
+{
     $className = ltrim($className, '\\');
-    $fileName  = '';
-    $namespace = '';
+    $fileName = '';
     if ($lastNsPos = strripos($className, '\\')) {
         $namespace = substr($className, 0, $lastNsPos);
         $className = substr($className, $lastNsPos + 1);
-        $fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+        $fileName = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
     }
     $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
 
@@ -24,7 +24,7 @@ spl_autoload_register("autoload");
 
 
 $Settings = new Application\Configs\Settings();
-$Settings->get_variables();
+$Settings->getVariables();
 
 $connexion = new Library\Core\Connexion();
 $connexion->connectDb();
@@ -34,7 +34,6 @@ if ($_GET['end'] == 'admin') {
     $AdminRouter = new Administration\Router\AdminRouter();
     $AdminRouter->dispatchPage($url);
 } else {
-
     $AppRouter = new Application\Router\AppRouter();
     $AppRouter->dispatchPage($url);
 }

@@ -6,7 +6,7 @@ Simple PHP CMS
 Prereq
 ------
  
-PHP 5 >= 5.3.0
+PHP version >= 7
 
 Mysql
 

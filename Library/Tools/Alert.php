@@ -2,15 +2,17 @@
 
 namespace Library\Tools;
 
-class Alert {
+class Alert
+{
 
     /**
      * Function render allows to get the good alert
-     * @param type $msg
-     * @param type $type(success,info,warning,danger)
+     * @param string $msg
+     * @param string $type (success,info,warning,danger)
+     * @return string $output
      */
-    static function render($msg = "", $type = "info") {
-        $class = "";
+    public static function render($msg = "", $type = "info")
+    {
         switch ($type) {
             case "success":
                 $class = "alert-success";
